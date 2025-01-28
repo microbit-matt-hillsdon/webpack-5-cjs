@@ -1,7 +1,4 @@
-import { MicrobitWebUSBConnection } from "@microbit/microbit-connection";
-import { MicropythonFsHex } from "@microbit/microbit-fs";
-
-const uPy1HexFile = `:020000040000FA
+:020000040000FA
 :1000000000400020218E01005D8E01005F8E010006
 :1000100000000000000000000000000000000000E0
 :10002000000000000000000000000000618E0100E0
@@ -14486,28 +14483,3 @@ const uPy1HexFile = `:020000040000FA
 :0C10D000FFFFFFFF2D6D0300000000007B
 :0400000500018E2147
 :00000001FF
-`;
-const microbitV1BoardId = 39168;
-const d = new MicropythonFsHex([
-  { hex: uPy1HexFile, boardId: microbitV1BoardId },
-]);
-
-const content1 = "from microbit import display\r\ndisplay.show('x')";
-const content2 = "from microbit import display\r\ndisplay.show('y')";
-
-d.write("test.py", content1);
-d.write("test2.py", content2);
-
-const file1 = d.read("test.py");
-const file2 = d.read("test2.py");
-
-console.log(d.ls());
-console.log("file 1 content:", file1);
-console.log("file 2 content:", file2);
-
-const c = new MicrobitWebUSBConnection();
-const b = document.body.appendChild(
-  document.createElement("button")
-) as HTMLButtonElement;
-b.innerText = "Click me";
-b.onclick = () => c.connect();
