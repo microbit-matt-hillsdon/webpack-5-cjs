@@ -14510,4 +14510,7 @@ const b = document.body.appendChild(
   document.createElement("button")
 ) as HTMLButtonElement;
 b.innerText = "Click me";
-b.onclick = () => c.connect();
+b.onclick = async () => { 
+  await c.connect(); 
+  await c.flash(async () => uPy1HexFile, { partial: true, progress: (n) => console.log(n) })
+}
