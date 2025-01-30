@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@microbit/microbit-connection": "file:../microbit-connection/microbit-microbit-connection-0.0.0.tgz",
-    "@microbit/microbit-fs": "file:../microbit-fs/microbit-microbit-fs-0.10.0.tgz",
+    "@microbit/microbit-connection": "^0.0.0-alpha.33",
+    "@microbit/microbit-fs": "^0.10.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.3",
     "webpack": "^5.94.0"
